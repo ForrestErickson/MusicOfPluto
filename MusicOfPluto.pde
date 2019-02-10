@@ -27,7 +27,7 @@ float freqScale = freqC3 * 1/freqHydra;  // Scale up for lowest frequency to hea
 
 void setup() {
 
-  size(200, 200);
+  size(300, 300);
   //Scale frequencies 
   freqPluto = freqScale * freqPluto  ;
   freqCharon = freqScale * freqCharon ;
@@ -54,10 +54,10 @@ void setup() {
   // Create a Sound object for globally controlling the output volume.
   s = new Sound(this);
   
-  println( "Our sound list is " + s.list());
+//  println( "Our sound list is " + s.list());
 //int deviceNumber = s.inputDevice();
 //println( "Our input device list is %d", Sound.inputDevice());
-  
+  println ("\nMusic of the spheres for Pluto and its moons.");
   println ("FreqPluto is: " , freqPluto);
   println ("FreqCharon is: " , freqCharon);
   println ("FreqNix is: " , freqNix);
@@ -68,7 +68,10 @@ void setup() {
 }
 
 void draw() {
+   background(0);
+
   // Map vertical mouse position to volume.
+  text("Move mouse vertically in window to change amplitude.", width/2-120, 150);
   float amplitude = map(mouseY, 0, height, 0.4, 0.0);
 
   // Instead of setting the volume for every oscillator individually, we can just
